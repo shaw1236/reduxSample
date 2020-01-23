@@ -5,15 +5,15 @@
 //
 class Action {
     static increment(value) {
-        return value + 1;
+        return {"TYPE": 'INCREMENT', "value": value + 1};
     }
 
     static decrement(value) {
-        return value - 1;
+        return {"TYPE": 'DECREMENT', "value": value - 1};
     }
      
     static reset() {
-        return 0
+        return {"TYPE": 'RESET', "value": 0}
     }
 }
 
