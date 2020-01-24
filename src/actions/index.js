@@ -3,17 +3,32 @@
 //
 // Author : Simon Li  Jan 23, 2020
 //
+//////////////////////////////////////////////////////
+
 class Action {
-    static increment(value) {
-        return {"TYPE": 'INCREMENT', "value": value + 1};
+    static current_value = 0;
+
+    static increment() {
+        ++Action.current_value;
+        Action.doSomething();
+        return {type: 'INCREMENT'}; //triger the reducer
     }
 
-    static decrement(value) {
-        return {"TYPE": 'DECREMENT', "value": value - 1};
+    static decrement() {
+        --Action.currentValue;
+        Action.doSomething();
+        return {type: 'DECREMENT'};  //triger the reducer
     }
      
     static reset() {
-        return {"TYPE": 'RESET', "value": 0}
+        Action.currentValue = 0;
+        Action.doSomething();
+        return {type: 'RESET'};  //triger the reducer
+    }
+
+    static doSomething() {
+        //console.log(Action.currentValue);  // dummy code
+        // do something with the currentValue....
     }
 }
 
